@@ -27,11 +27,13 @@ def send_messages():
                 local_time = datetime.datetime.now()
                 date_difference = datetime.timedelta(days=5)
                 meeting_date = local_time + date_difference
+
+                sender = "Your_Sender_ID"
                 # create a customized message
                 message = f"Hello {name}, this message sent to inform you of a meeting scheduled on {meeting_date}"
                 # For each entry send a customized message
                 try:
-                    response = sms.send(message, [number])
+                    response = sms.send(message, [number], sender)
                     print(response)
                 except Exception as e:
                     print(f'Uh oh we have a problem: {e}')
