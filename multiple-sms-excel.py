@@ -25,9 +25,10 @@ def send_messages():
         lesson = row[3]
         lesson_date = "Friday 12 March at 8.00 am "
         print(name,number)
+        sender = "Your_Sender_ID"
         message = f"hey {name}  Kindly note {lesson} lecture is scheduled on {lesson_date}"
         try:
-            response = sms.send(message, [number])
+            response = sms.send(message, [number], sender)
             print(response)
         except Exception as e:
             print(f"Uh oh we have a problem: {e}")
